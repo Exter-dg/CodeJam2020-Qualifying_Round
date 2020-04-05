@@ -1,26 +1,20 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-
-#define ll long long
-
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-
-    int t,n;
+    int t;
     cin>>t;
-    long long trace=0;
-    int r,c;
+    long long sum=0;
+    int n,r,c;
     for(auto z=0;z<t;z++)
     {
         r=0;
         c=0;
-        trace = 0;
-        set <int>row;
-        set<int>col;
+        sum = 0;
+        set <int>s;
         cin>>n;
         int a[n][n];
         for(auto i=0;i<n;i++)
@@ -30,15 +24,15 @@ int main()
                 cin>>a[i][j];
                 if(i==j)
                 {
-                    trace+=a[i][j];
+                    sum+=a[i][j];
                 }
-                row.insert(a[i][j]);
+                s.insert(a[i][j]);
             }
-            if(row.size() != n)
+            if(s.size() != n)
             {
               r++;
             }
-            row.clear();
+            s.clear();
 
         }
 
@@ -46,16 +40,16 @@ int main()
         {
           for(auto i=0;i<n;i++)
           {
-            col.insert(a[i][j]);
+            s.insert(a[i][j]);
           }
-          if(col.size() != n)
+          if(s.size() != n)
           {
             c++;
           }
-          col.clear();
+          s.clear();
         }
 
-        cout<<"Case #"<<z+1<<": "<<trace<<" "<<r<<" "<<c<<"\n";
+        cout<<"Case #"<<z+1<<": "<<sum<<" "<<r<<" "<<c<<"\n";
     }
 
     return 0;
